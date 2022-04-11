@@ -12,26 +12,40 @@ if (isset($track)) {
                             foreach ($v2 as $k3 => $v3) {
                                 if ($k3 == 'album') {
                                     foreach ($v3 as $k4 => $v4) {
+
+                                        if($k4 == 'images')
+                                        {
+                                           // echo $k4;
+                                           print_r($v4[0]['url']);
+                                          
+                                       }
+
                                         if ($k4 == 'artists') {
                                             foreach ($v4 as $k5 => $v5) {
-                                                print_r($v5['href']);
-                                                echo "<br>";
+                                              
+                                                echo "<br>id = ";
                                                 print_r($v5['id']);
-                                                echo "<br>";
+                                                echo "<br>name = ";
                                                 print_r($v5['name']);
-                                                echo "<br>";
-                                                print_r($v5['type']);
-                                                echo "<br>";
+                                                // echo "<br>type  =";
+                                                // print_r($v5['type']);
+                                                echo "<br>uri = ";
                                                 print_r($v5['uri']);
-                                                echo "<br>";
+                                                echo "<br>extermal = ";
                                                 print_r($v5['external_urls']['spotify']);
-                                                echo "<br>";
-                                                // if (isset($v5)) {
-                                                //     foreach ($v5 as $k6 => $v6) {
-                                                //       //  print_r($v6);
-                                                //        // echo "<br>";
-                                                //     }
-                                                // }
+                                                echo "<br><br><br>images=";
+                                                if(isset($v5['images']))
+                                                {
+                                                    
+                                                    print_r($v5['images']);
+                                                    foreach($v5['images'] as $k6 => $v6)
+                                                    {
+                                                        echo $k6;
+                                                        echo "<h1>images</h1>";
+                                                        print_r($v6);
+                                                    }
+                                                }
+                                                
                                             }
                                         }
                                     }
