@@ -147,20 +147,15 @@ $this->view->result = $result;
             curl_close($ch2);
 
             echo '<pre>'.print_r($json2, true).'</pre>';
+            $this->view->album = $json2;
         }
 
         if(isset($_POST['artist']))
         {
             $selected_field = $_POST['artist'];
-            $authorization = "Authorization: Bearer " . $json->access_token;
- 
-            
-
+            $authorization = "Authorization: Bearer " . $json->access_token;       
             $spotifyURL = 'https://api.spotify.com/v1/search?q='.urlencode($search).'&type=artist';
-
             $ch2 = curl_init();
-
-
             curl_setopt($ch2, CURLOPT_URL, $spotifyURL);
             curl_setopt($ch2,  CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $authorization));
             curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
@@ -172,6 +167,7 @@ $this->view->result = $result;
             curl_close($ch2);
 
             echo '<pre>'.print_r($json2, true).'</pre>';
+            $this->view->artist = $json2;
         }
 
         // if(isset($_POST['playlist']))
